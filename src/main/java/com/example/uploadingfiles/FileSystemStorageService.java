@@ -59,15 +59,11 @@ public class FileSystemStorageService{
 	}
 
 	public InputStream get(Path path) throws Exception {
-		try {
-			return minioClient.getObject(
-					GetObjectArgs.builder()
-							.bucket(bucketName)
-							.object(path.toString())
-							.build());
-		} catch (Exception e) {
-			throw e;
-		}
+		return minioClient.getObject(
+				GetObjectArgs.builder()
+						.bucket(bucketName)
+						.object(path.toString())
+						.build());
 	}
 
 	public List<String> fullList() {
